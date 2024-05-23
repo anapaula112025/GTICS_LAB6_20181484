@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/navbar.html :: header( title = 'Lista de Dispositivos')}"></head>
+<body>
+<div class="container">
+    <nav th:replace="~{fragments/navbar.html :: navbar( active = 'Shipper')}"></nav>
+    <h2>Inventario de dispositivos</h2>
+    <a class="btn btn-primary mt-4 mb-4" href="#">Agregar Dispositivo</a>
+
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Disponibles</th>
+        </tr>
+        <tr th:each="dispositivo: ${dispositivoList}">
+            <td th:text="${dispositivo.id}"></td>
+            <td th:text="${dispositivo.nombre}"></td>
+            <td th:text="${dispositivo.cantidad}"></td>
+            <td th:text="${dispositivo.disponibles}"></td>
+
+        </tr>
+
+    </table>
+</div>
+<script th:replace="~{fragments/navbar.html :: footer-bootstrap}"></script>
+</body>
+</html>
